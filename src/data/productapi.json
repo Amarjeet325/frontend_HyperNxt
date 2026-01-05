@@ -1,0 +1,209 @@
+{
+  "httpStatusCode": 200,
+  "customStatusCode": null,
+  "result": {
+    "data": {
+      "StatusCode": 200,
+      "result": [
+        {
+          "price": {
+            "actual_price": 211,
+            "discount_price": 211,
+            "discount_percentage": 0
+          },
+          "_id": "694d39582807cba50f524c92",
+          "category_id": "CAT001",
+          "subCategory_id": "SUB012",
+          "product_name": "Brass Diya",
+          "brand_name": "Khus India",
+          "quantity": 12,
+          "product_status": "active",
+          "product_code": "Prod_001",
+          "hsn_code": "HSN111",
+          "short_description": [
+            {
+              "title": "Material",
+              "content": "Brass",
+              "_id": "694d39582807cba50f524c93"
+            },
+            {
+              "title": "Quantity",
+              "content": "4 pieces",
+              "_id": "694d39582807cba50f524c94"
+            },
+            {
+              "title": "Weight",
+              "content": "12 grams each",
+              "_id": "694d39582807cba50f524c95"
+            }
+          ],
+          "long_description": [
+            {
+              "title": "Description",
+              "content": "This product is a set of 4 brass diyas suitable for daily pooja and festive use. Each diya weighs 12 grams and is made of good quality brass with a traditional finish. The diyas are reusable, easy to clean and ideal for home mandir and religious occasions.",
+              "_id": "694d39582807cba50f524c96"
+            }
+          ],
+          "catalogue": [],
+          "images": [
+            "https://res.cloudinary.com/dadazalgw/image/upload/v1766668631/images/1766668631363-1761206490-6683-IMG_20251023_132513.jpg.jpg",
+            "https://res.cloudinary.com/dadazalgw/image/upload/v1766668631/images/1766668631477-1761206476-5337-IMG_20251023_132527.jpg.jpg"
+          ],
+          "createdAt": "2025-12-25T13:17:12.191Z",
+          "updatedAt": "2025-12-25T13:17:12.191Z",
+          "__v": 0
+        },
+        {
+          "price": {
+            "actual_price": 105,
+            "discount_price": 105,
+            "discount_percentage": 0
+          },
+          "_id": "694e24c82807cba50f52513c",
+          "category_id": "CAT002",
+          "subCategory_id": "SUB022",
+          "product_name": " Multipurpose Cleaning Wiper (Pack of 2)",
+          "brand_name": "Khus India",
+          "quantity": 15,
+          "product_status": "active",
+          "product_code": "Prod_021",
+          "hsn_code": "HSN_021",
+          "short_description": [
+            {
+              "title": "Product Type",
+              "content": "Cleaning Wiper",
+              "_id": "694e2a9c2807cba50f5252d4"
+            },
+            {
+              "title": "Quantity",
+              "content": "2 pieces",
+              "_id": "694e2a9c2807cba50f5252d5"
+            },
+            {
+              "title": "Usage",
+              "content": "Floor, bathroom, kitchen, windows",
+              "_id": "694e2a9c2807cba50f5252d6"
+            }
+          ],
+          "long_description": [
+            {
+              "title": "Description",
+              "content": "This is a pack of 2 multipurpose cleaning wipers designed for everyday home use. These wipers are suitable for cleaning floors, bathroom surfaces, kitchen areas and windows. The strong rubber blade helps remove water and dirt easily, leaving surfaces clean and dry.\r\n\r\nThe handle offers a comfortable grip and makes daily cleaning simple and quick.",
+              "_id": "694e2a9c2807cba50f5252d7"
+            }
+          ],
+          "catalogue": [],
+          "images": [
+            "https://res.cloudinary.com/dadazalgw/image/upload/v1766730396/images/1766730395950-1761204090-5428-1761152165582.jpg.png"
+          ],
+          "createdAt": "2025-12-26T06:01:44.298Z",
+          "updatedAt": "2025-12-26T06:26:36.652Z",
+          "__v": 0
+        },
+        {
+          "price": {
+            "actual_price": 204,
+            "discount_price": 204,
+            "discount_percentage": 0
+          },
+          "_id": "694e2b8e2807cba50f5252f6",
+          "category_id": "CAT001",
+          "subCategory_id": "SUB012",
+          "product_name": "Sambrani Loban Dhoop Cup with Holder Plate",
+          "brand_name": "Khus India",
+          "quantity": 15,
+          "product_status": "active",
+          "product_code": "Prod_012",
+          "hsn_code": "HSN_012",
+          "short_description": [
+            {
+              "title": "Product Type",
+              "content": "Sambrani Loban Dhoop Cup",
+              "_id": "694e2b8e2807cba50f5252f7"
+            },
+            {
+              "title": "Quantity",
+              "content": "24 cups",
+              "_id": "694e2b8e2807cba50f5252f8"
+            },
+            {
+              "title": "Includes",
+              "content": "1 holder plate",
+              "_id": "694e2b8e2807cba50f5252f9"
+            },
+            {
+              "title": "Usage",
+              "content": "Pooja, meditation, spiritual rituals",
+              "_id": "694e2b8e2807cba50f5252fa"
+            }
+          ],
+          "long_description": [
+            {
+              "title": "Description",
+              "content": "This product includes 24 sambrani loban dhoop cups along with a holder plate. The dhoop cups produce a rich and soothing aroma that helps create a calm and spiritual atmosphere. Suitable for daily pooja, meditation and festive rituals.\r\n\r\nThe holder plate allows safe and convenient use during burning.",
+              "_id": "694e2b8e2807cba50f5252fb"
+            }
+          ],
+          "catalogue": [],
+          "images": [
+            "https://res.cloudinary.com/dadazalgw/image/upload/v1766730637/images/1766730637392-1761204090-5428-1761152165582.jpg.png"
+          ],
+          "createdAt": "2025-12-26T06:30:38.157Z",
+          "updatedAt": "2025-12-26T06:30:38.157Z",
+          "__v": 0
+        },
+        {
+          "price": {
+            "actual_price": 240,
+            "discount_price": 240,
+            "discount_percentage": 0
+          },
+          "_id": "694e2c702807cba50f52530d",
+          "category_id": "CAT001",
+          "subCategory_id": "SUB011",
+          "product_name": "Traditional Brass Thali | Pital Thali Plate for Pooja",
+          "brand_name": "Khus India",
+          "quantity": 18,
+          "product_status": "active",
+          "product_code": "Prod_013",
+          "hsn_code": "HSN_013",
+          "short_description": [
+            {
+              "title": "Material",
+              "content": "Brass (Pital)",
+              "_id": "694e2c702807cba50f52530e"
+            },
+            {
+              "title": "Product Type",
+              "content": "Pooja Thali",
+              "_id": "694e2c702807cba50f52530f"
+            },
+            {
+              "title": "Usage",
+              "content": "Daily pooja and rituals",
+              "_id": "694e2c702807cba50f525310"
+            }
+          ],
+          "long_description": [
+            {
+              "title": "Description",
+              "content": "This is a traditional brass thali made for pooja and religious rituals. Crafted from quality pital (brass), the thali has a clean and classic finish that suits daily pooja as well as festive use. It is sturdy, reusable and easy to clean.\r\n\r\nIdeal for holding diya, agarbatti, flowers and other pooja items.",
+              "_id": "694e2c702807cba50f525311"
+            }
+          ],
+          "catalogue": [],
+          "images": [
+            "https://res.cloudinary.com/dadazalgw/image/upload/v1766730864/images/1766730864217-1761207194-4424-IMG-20251019-WA0019.jpg.jpg"
+          ],
+          "createdAt": "2025-12-26T06:34:24.915Z",
+          "updatedAt": "2025-12-26T06:34:24.915Z",
+          "__v": 0
+        }
+      ]
+    },
+    "customData": null
+  },
+  "message": "Products fetched successfully.",
+  "displayMessage": "All products retrieved successfully.",
+  "status": true
+}
