@@ -16,6 +16,11 @@ import MostPopularProducts from './components/MostPopularProducts'
 import Footer from './components/Footer'
 
 const App = () => {
+  React.useEffect(() => {
+    // Ensure we start at the top when the app mounts (covers refresh/load)
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <CartProvider>
       <Header />

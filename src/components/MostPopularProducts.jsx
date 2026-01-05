@@ -12,7 +12,11 @@ const MostPopularProducts = () => {
     setLoading(true);
     fetchProducts()
       .then((data) => mounted && setProducts(data.slice(0, 6)))
-      .catch((err) => mounted && setError(err?.message || "Failed to fetch products"))
+      .catch(
+        (err) =>
+          mounted &&
+          setError(err?.message || "Failed to fetch products")
+      )
       .finally(() => mounted && setLoading(false));
 
     return () => (mounted = false);
@@ -30,55 +34,96 @@ const MostPopularProducts = () => {
 
   if (loading) {
     return (
-      <section className="max-w-7xl mx-auto px-4 py-14">
-        <div>Loading best selling products…</div>
+      <section className="max-w-7xl mx-auto px-4 py-12">
+        <p className="text-center text-gray-500">
+          Loading most popular products…
+        </p>
       </section>
     );
   }
 
   if (error) {
     return (
-      <section className="max-w-7xl mx-auto px-4 py-14">
-        <div className="text-red-500">{error}</div>
+      <section className="max-w-7xl mx-auto px-4 py-12">
+        <p className="text-center text-red-500">{error}</p>
       </section>
     );
   }
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-14">
+    <section className="max-w-7xl mx-auto px-4 py-12 sm:py-14">
       {/* Header */}
-      <div className="flex items-center justify-between mb-10">
-        <h2 className="text-2xl font-light text-gray-700">Most Popular Products</h2>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+        <h2 className="text-xl sm:text-2xl font-light text-gray-700">
+          Most Popular Products
+        </h2>
 
-        <div className="flex items-center gap-4">
-          <button className="text-sm text-gray-500 hover:text-black">View All Categories →</button>
+        <div className="flex items-center justify-between sm:justify-end gap-4">
+          <button className="text-sm text-gray-500 hover:text-black whitespace-nowrap">
+            View All Categories →
+          </button>
 
-          <div className="flex gap-2">
-            <button className="w-10 h-10 rounded-lg bg-blue-100 text-blue-500 flex items-center justify-center">‹</button>
-            <button className="w-10 h-10 rounded-lg bg-blue-500 text-white flex items-center justify-center">›</button>
+          {/* Desktop arrows */}
+          <div className="hidden sm:flex gap-2">
+            <button className="w-10 h-10 rounded-lg bg-blue-100 text-blue-500 flex items-center justify-center">
+              ‹
+            </button>
+            <button className="w-10 h-10 rounded-lg bg-blue-500 text-white flex items-center justify-center">
+              ›
+            </button>
           </div>
         </div>
       </div>
 
       {/* Products */}
-      <div className="flex gap-6 overflow-x-auto lg:grid lg:grid-cols-6 scrollbar-hide">
+      <div
+        className="
+          flex gap-4 overflow-x-auto pb-2
+          sm:grid sm:grid-cols-2
+          md:grid-cols-3
+          lg:grid-cols-4
+          xl:grid-cols-6
+          sm:gap-6
+          sm:overflow-visible
+        "
+      >
         {products.map((product) => (
-          <div key={product.id} className="min-w-[260px] bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition relative">
+          <div
+            key={product.id}
+            className="
+              min-w-[240px] sm:min-w-0
+              bg-white rounded-2xl
+              p-4
+              shadow-sm hover:shadow-md
+              transition
+              relative
+            "
+          >
             {/* Discount */}
             {product.discount && (
-              <span className="absolute top-4 left-4 bg-green-500 text-white text-xs px-2 py-1 rounded">{product.discount}</span>
+              <span className="absolute top-4 left-4 bg-green-500 text-white text-xs px-2 py-1 rounded">
+                {product.discount}
+              </span>
             )}
 
             {/* Wishlist */}
-            <button className="absolute top-4 right-4 w-9 h-9 rounded-full border flex items-center justify-center">♥</button>
+            <button className="absolute top-4 right-4 w-9 h-9 rounded-full border flex items-center justify-center hover:bg-gray-100">
+              ♥
+            </button>
 
             {/* Image */}
-            <div className="flex justify-center py-6">
-              <img src={product.image} alt={product.name} className="w-28 h-28 object-contain" />
+            <div className="flex justify-center py-5">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-24 h-24 sm:w-28 sm:h-28 object-contain"
+              />
             </div>
 
             {/* Info */}
-            <h3 className="font-medium text-gray-800 mb-2">{product.name}</h3>
+            <h3 className="font-medium text-gray-800 mb-2 line-clamp-2">
+              {product.name}
+            </h3>
 
             <div className="text-sm text-gray-500 flex items-center gap-2 mb-2">
               <span>{product.unit}</span>
@@ -86,17 +131,31 @@ const MostPopularProducts = () => {
               <span>{product.rating}</span>
             </div>
 
-            <p className="text-lg font-semibold mb-4">${product.price.toFixed(2)}</p>
+            <p className="text-lg font-semibold mb-4">
+              ${product.price.toFixed(2)}
+            </p>
 
             {/* Actions */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 border rounded-lg px-2 py-1">
-                <button onClick={() => updateQty(product.id, "dec")}>−</button>
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-3 border rounded-lg px-3 py-1">
+                <button
+                  onClick={() => updateQty(product.id, "dec")}
+                  className="text-lg"
+                >
+                  −
+                </button>
                 <span>{qty[product.id] || 1}</span>
-                <button onClick={() => updateQty(product.id, "inc")}>+</button>
+                <button
+                  onClick={() => updateQty(product.id, "inc")}
+                  className="text-lg"
+                >
+                  +
+                </button>
               </div>
 
-              <button className="text-sm text-gray-600 hover:text-black">Add to Cart</button>
+              <button className="text-sm font-medium text-gray-600 hover:text-black whitespace-nowrap">
+                Add to Cart
+              </button>
             </div>
           </div>
         ))}

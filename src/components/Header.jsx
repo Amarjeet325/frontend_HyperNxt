@@ -5,6 +5,7 @@ import { CartContext } from "../context/CartContext";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+
   const {
     cartItems,
     addItem,
@@ -12,7 +13,6 @@ const Header = () => {
     total,
     isCartOpen,
     toggleCart,
-    openCart,
     closeCart,
     isMobileCartOpen,
     openMobileCart,
@@ -20,22 +20,21 @@ const Header = () => {
   } = useContext(CartContext);
 
   return (
-    <header className="border-b">
-      {/* Top Section */}
-      <div className="max-w-7xl mx-auto px-4 py-4 flex flex-wrap items-center gap-6">
-
+    <header className="border-b bg-white sticky top-0 z-50">
+      {/* TOP BAR */}
+      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center gap-4">
         {/* Logo */}
-        <div className="w-full sm:w-auto text-center sm:text-left">
+        <div className="flex-shrink-0">
           <img
             src="/images/logo.png"
             alt="logo"
-            className="h-10 mx-auto sm:mx-0"
+            className="h-9 sm:h-10"
           />
         </div>
 
-        {/* Search */}
-        <div className="hidden lg:flex flex-1 bg-gray-100 rounded-xl p-2 items-center gap-2">
-          <select className="bg-transparent outline-none text-sm">
+        {/* Search (Tablet + Desktop) */}
+        <div className="hidden md:flex flex-1 bg-gray-100 rounded-xl p-2 items-center gap-2">
+          <select className="bg-transparent outline-none text-sm hidden lg:block">
             <option>All Categories</option>
             <option>Groceries</option>
             <option>Drinks</option>
@@ -45,46 +44,57 @@ const Header = () => {
           <input
             type="text"
             placeholder="Search for more than 20,000 products"
-            className="flex-1 bg-transparent outline-none px-2"
+            className="flex-1 bg-transparent outline-none px-2 text-sm"
           />
         </div>
 
-        {/* Right */}
-        <div className="flex items-center gap-6 ml-auto">
-
+        {/* RIGHT */}
+        <div className="ml-auto flex items-center gap-4 sm:gap-6">
+          {/* Partner text */}
           <div className="hidden xl:block text-right">
-            <p className="text-sm text-gray-500">Apply for Store</p>
-            <h5 className="font-semibold">Partner</h5>
+            <p className="text-xs text-gray-500">
+              Apply for Store
+            </p>
+            <h5 className="font-semibold text-sm">
+              Partner
+            </h5>
           </div>
 
           {/* Icons */}
-          <div className="flex gap-3">
-           <CiUser />
-           <CiHeart />
+          <div className="flex items-center gap-3 text-2xl">
+            <button className="hover:text-black">
+              <CiUser />
+            </button>
+            <button className="hover:text-black">
+              <CiHeart />
+            </button>
+
+            {/* Mobile cart button */}
             <button
-              className="p-2 bg-gray-100 rounded-full lg:hidden"
-              onClick={() => openMobileCart()}
+              className="p-2 bg-gray-100 rounded-full md:hidden"
+              onClick={openMobileCart}
               aria-label="Open cart"
             >
               🛒
             </button>
           </div>
 
-          {/* Cart (desktop: dropdown) */}
-          <div className="hidden lg:block text-right relative">
+          {/* Desktop Cart */}
+          <div className="hidden md:block relative text-right">
             <button
-              className="text-sm text-gray-500 hover:text-black cursor-pointer"
-              onClick={() => toggleCart()}
+              className="text-sm text-gray-500 hover:text-black"
+              onClick={toggleCart}
               aria-expanded={isCartOpen}
             >
-                Your Cart ( {cartItems.length} items )
+              Your Cart ({cartItems.length})
             </button>
-            <p className="font-bold">${total.toFixed(2)}</p>
+            <p className="font-bold text-sm">
+              ${total.toFixed(2)}
+            </p>
 
-            {/* Dropdown anchored to this container */}
             <Cart
               open={isCartOpen}
-              onClose={() => closeCart()}
+              onClose={closeCart}
               items={cartItems}
               onRemoveItem={removeItem}
               onAddItem={addItem}
@@ -92,76 +102,58 @@ const Header = () => {
             />
           </div>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-2xl"
+            className="md:hidden text-2xl"
             onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
           >
             ☰
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE SEARCH */}
+      <div className="md:hidden px-4 pb-3">
+        <input
+          type="text"
+          placeholder="Search products..."
+          className="w-full bg-gray-100 rounded-lg px-4 py-2 outline-none text-sm"
+        />
+      </div>
+
+      {/* MOBILE MENU */}
       {open && (
-        <div className="lg:hidden px-4 py-3 bg-gray-100">
-          <ul className="space-y-2">
-            <li>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                  setOpen(false);
-                }}
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                  setOpen(false);
-                }}
-              >
-                Shop
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                  setOpen(false);
-                }}
-              >
-                Categories
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                  setOpen(false);
-                }}
-              >
-                Contact
-              </a>
-            </li>
+        <div className="md:hidden bg-gray-100 px-4 py-4">
+          <ul className="space-y-3 text-sm">
+            {["Home", "Shop", "Categories", "Contact"].map(
+              (item) => (
+                <li key={item}>
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.scrollTo({
+                        top: 0,
+                        behavior: "smooth",
+                      });
+                      setOpen(false);
+                    }}
+                    className="block hover:text-black"
+                  >
+                    {item}
+                  </a>
+                </li>
+              )
+            )}
           </ul>
         </div>
       )}
 
-      {/* Mobile Cart drawer */}
+      {/* MOBILE CART DRAWER */}
       <Cart
         open={isMobileCartOpen}
-        onClose={() => closeMobileCart()}
+        onClose={closeMobileCart}
         items={cartItems}
         onRemoveItem={removeItem}
         onAddItem={addItem}
