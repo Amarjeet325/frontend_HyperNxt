@@ -1,5 +1,5 @@
 import Api from "./Api";
-import fallbackData from "../../../productapi.json";
+
 
 const normalize = (item) => ({
   id: item._id,
@@ -23,12 +23,9 @@ export async function fetchProducts() {
     if (Array.isArray(items)) {
       return items.map(normalize);
     }
-    // fallback to local data if shape differs
-    const local = fallbackData?.result?.data?.result;
-    return Array.isArray(local) ? local.map(normalize) : [];
-  } catch (err) {
-    // fallback
-    const local = fallbackData?.result?.data?.result;
-    return Array.isArray(local) ? local.map(normalize) : [];
+    return [];
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    throw error;
   }
 }
